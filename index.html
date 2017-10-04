@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colleges Product</title>
+
+    <meta name="description" content="Project : College Integration">
+    <meta name="author" content="Rahul Kumar">
+	<meta name="viewport" content="width=device-width" initial-scale=1 />
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,200,600,700,800" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<script src="js/angular.min.js"></script>
+	<script src="js/scripts.js"></script>
+  </head>
+  <body ng-app="myModule">
+	<div class="row header" ng-controller="headerController">
+		<div class="header_content">
+			<div class="row">
+				<h3 class="header_large">
+					{{ header_title }}
+				</h3>
+			</div>
+			<div class="row">
+				<p class="header_small"> 
+					{{ header_details }} | {{header_ownership}} | {{ header_address }} | Website : <a href="#" target="_blank"> {{ header_website }} </a>
+				</p>				
+			</div>
+		</div>	
+	</div>
+	<div class="row main_container"  ng-controller="sidebarController">
+		<div class="col-md-2 col-sm-3 col-xs-12 sidebar ">
+			<br>
+			<h4 style="letter-spacing: 1px;">< &nbsp; BACK</h4>
+			<br>
+			<ul>
+				<li>
+					<a class="page-scroll"  ng-class="{active : selectedNav =='basic'}" ng-click="changeActiveTab('basic')" href="#basicInfo">BASIC INFO</a>
+				</li>
+				<li>
+					<a class="page-scroll" ng-class="{active : selectedNav =='area'}"  ng-click="changeActiveTab('area')" href="#areaSpecification">AREA SPECIFICS</a>
+				</li>
+				<li>
+					<a class="page-scroll"  ng-class="{active : selectedNav =='infrastructure'}" ng-click="changeActiveTab('infrastructure')" href="#infrastructure">INFRASTRUCTURE</a>
+				</li>
+				<li>
+					<a class="page-scroll " ng-class="{active : selectedNav =='admission'}" ng-click="changeActiveTab('admission')" href="#admission">ADMISSION</a>
+				</li>
+				<li>
+					<a class="page-scroll"  ng-class="{active : selectedNav =='ranking'}" ng-click="changeActiveTab('ranking')" href="#ranking">RANKING</a>
+				</li>
+				
+				<li>
+					<a class="page-scroll" ng-class="{active : selectedNav =='placements'}" ng-click="changeActiveTab('placements')" href="#placements">PLACEMENTS</a>
+				</li>
+				<li>
+					<a class="page-scroll" ng-class="{active : selectedNav =='diversity'}" ng-click="changeActiveTab('diversity')" href="#faculty_diversity">DIVERSITY</a>
+				</li>
+			</ul>
+			<br>
+			<div class="row tip">
+				<div class="col-md-12 sidebar_tip">
+						<b>TIP</b>
+						<p>
+							Click on text that looks like <a>this</a> to know more about the topic.
+						</p> 
+				</div>
+			</div>
+		</div>
+
+		<div class=" col-md-10 col-sm-9 col-xs-12">
+
+			<div class="row" id="basicInfo" ng-controller="basicInfoController">
+				<div class="col-md-12 col-xs-12">
+					<h3 class="row basinfo_header">
+							Basic Information
+					</h3>
+					<br>
+					<div class="row main_content">
+						<div class="col-md-3 col-sm-3 col-xs-12 basinfo_content0">
+							<div class="col-md-12 col-xs-12">
+								<br>
+								<h6>FOUNDATIONS</h6>
+								<h3>{{ accredition }}</h3>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-12 basinfo_content0">
+							<div class="col-md-12 col-xs-12">
+								<br>
+								<h6>AFFILIATIONS</h6>
+								<h3>{{ affiliations }}</h3>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-12 basinfo_content0">
+							<div class="col-md-12 col-xs-12">
+								<br>
+								<h6>AFFILIATED COLLEGES</h6>
+								<h3 class="shift_up">{{ affiliatedColleges }}</h3>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-12 basinfo_content1">
+							<div class="col-md-12 col-xs-12">
+								<br>
+								<h6>BELONGING UNIVERSITY</h6>
+								<h3 class="shift_up1">{{ university }}</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="row" id="areaSpecification" ng-controller="areaController">
+				<div class="col-md-12">
+					<div class="row area main_content"> 
+						<div class="col-md-7 col-xs-12 area_left">
+							<h3 class="area_header">
+							Area Specification
+							</h3>
+							<div class="row">
+								<div class="col-md-4 col-xs-3 area_content">
+									<h6>TOTAL AREA</h6>
+									<h3>{{ totalArea }} </h3>
+								</div>
+								<div class="col-md-4 col-xs-3 area_content">
+									<h6>CONSTRUCTED</h6>
+									<h3>{{ constructed }}</h3>
+								</div>
+								<div class="col-md-4 col-xs-3 area_content">
+									<h6>LOCALITY</h6>
+									<h3>{{ locality }}</h3>
+								</div>
+ 								<br>
+ 							</div>
+ 							<div class="row" style="margin-top:17px;">
+								<div class="col-md-4 col-xs-3 area_content">
+									<h6>AIRPORTS</h6>
+									<h3>{{ airports }}</h3>
+								</div>
+								<div class="col-md-4 col-xs-3 area_content">
+									<h6>RAILWAY</h6>
+									<h3>{{ railway }}</h3>
+								</div>
+								<div class="col-md-4 col-xs-3 area_content">
+									<h6>BANKS</h6>
+									<h3>{{ banks }}</h3>
+								</div>
+								<!-- <div class="col-md-4 col-xs-3 area_content">
+									<h6>POST OFFICES</h6>
+									<h3>{{ postOffice }}</h3>
+								</div> -->	
+							</div>
+						</div>	
+						<div class="col-md-5 col-xs-12">
+							<div id="map"></div>
+	   						<script>
+	   							function initMap() {
+	   						  		var uluru = {lat: 20.593, lng: 78.9629};
+	    							var map = new google.maps.Map(document.getElementById('map'), {
+	    						   	zoom: 10,
+	      						    center: uluru
+	   						  		});
+	       							var marker = new google.maps.Marker({
+	        					  	position: uluru,
+	        					  	map: map
+	        						});
+	     						}
+	    					</script>
+	    					<script async defer
+	    					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVW89lQS5yws9P1h1okog0eseIeGZAlfA&callback=initMap">
+	    					</script>
+		    				<!--Insert Map-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<br><br>
+
+			<div class="row" id="infrastructure" ng-controller="infraController">
+				<div class="col-md-12">
+					<h3 class="row infrastructure_heading">
+						Infrastructure and Facilities
+					</h3>
+					<br>
+					<div class="row  main_content">
+						<div class="col-md-4 col-xs-12 infrastructure_content1">
+							<div class="infrastructure_content_header text-center">
+								<img src="image/icons/learning_spaces.png" class="infrastructure_img">
+								<h6><b>LEARNING SPACES</b></h6>
+							</div>
+							<ul>
+								<li ng-repeat="space in learningSpaces">
+									<div class="row">
+										<div class="col-md-8 col-xs-8 infrastructure_listA">
+											<h6> {{ space.name }}</h6>
+										</div>
+										<div class="col-md-4 col-xs-4 infrastructure_listB">
+											<h4><b>{{ space.no }}</b></h4>
+										</div>
+										</div>	
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-4 col-xs-12 infrastructure_content1">
+							<div class="infrastructure_content_header text-center">
+								<img src="image/icons/recreation.png" class="infrastructure_img">
+								<h6><b>RECREATION</b></h6>
+							</div>
+							<ul>
+								<li ng-repeat="space in recreations">
+									<div class="row">
+										<div class="col-md-8 col-xs-8 infrastructure_listA">
+											<h6> {{ space.name }} </h6>
+										</div>
+										<div class="col-md-4 col-xs-4 infrastructure_listB">
+											<h4><b> {{ space.no }} </b></h4>
+										</div>
+									</div>	
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-4  col-xs-12 infrastructure_content2">
+							<div class="infrastructure_content_header text-center">
+								<img src="image/icons/utility.png" class="infrastructure_img">
+								<h6><b>UTILITY</b></h6>
+							</div>
+						
+							<ul>
+								<li ng-repeat="space in utility">
+									<div class="row">
+										<div class="col-md-8 col-xs-8 infrastructure_listA">
+											<h6> {{ space.name }} </h6>
+										</div>
+										<div class="col-md-4 col-xs-4 infrastructure_listB">
+											<h4><b> {{ space.no }} </b></h4>
+										</div>
+									</div>	
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+			
+			<div class="row"  id="admission" ng-controller="admissionController">
+				<div class="col-md-12">
+					<h3 class="row">
+						Admission Assistant
+					</h3>
+					<div>
+						<div class="row wizard">
+							<div class="col-md-3 col-sm-3 col-xs-3 angular-with-newlines roadmap">	
+								<b>APPLICATION ENDS</b>
+								<div class="admissiondynamic_content1 step"><p>{{ application_ends }}</p></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 angular-with-newlines roadmap">	
+								<b>TEST DATES</b>
+								<div class="admissiondynamic_content2 step"><p>{{ test_dates }}</p></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 angular-with-newlines roadmap">	
+								<b>RESULTS</b>
+								<div class="admissiondynamic_content3 step"><p>{{ results }}</p></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 angular-with-newlines roadmap">	
+								<b>SELECTION BREIFINGS</b>
+								<div class="admissiondynamic_content4 step"><p>{{ selection_briefings }}</p></div>
+							</div>						
+						</div>
+
+						
+						<br /> <br />
+						<div class="row">
+							<div class="col-md-12 admission_table">
+								<div class="row admission_table_header">
+									<div class="col-md-6 col-xs-4">
+										<h5><b>COURSES</b></h5>
+									</div>
+									<div class="col-md-2 col-xs-2">
+										<h5><b>NO. OF SEATS</b></h5>
+									</div>
+									<div class="col-md-2 col-xs-3">
+										<h5><b>DURATION</b></h5>
+									</div>
+									<div class="col-md-2 col-xs-3">
+										<h5><b>CATEGORY</b></h5>
+									</div>
+								</div>
+								<ul>
+									<li ng-repeat="course in courses">
+										<div class="row" style="padding:5px;" ng-style="{ 'background-color':'{{ course.color }}' }">
+											<div class="col-md-6 col-xs-5 admission_list_text">
+												<h6> {{ course.name }} </h6>
+											</div>
+											<div class="col-md-2 col-xs-2 admission_list_text">
+												<h6> {{ course.seat }}<h6>
+											</div>
+											<div class="col-md-2 col-xs-2 admission_list_text">
+												<h6>{{ course.duration }}</h6>
+											</div>
+											<div class="col-md-2 col-xs-3 admission_list_text">
+												<h6>{{ course.category }}</h6>
+											</div>
+										</div>	
+									</li>
+								</ul>
+							</div>
+						</div>
+						<br><br>
+						<div class="row">
+							<div class="col-md-12 admission_table">
+								<div class="row admission_table_header">
+									<div class="col-md-3 col-xs-4">
+										<h5><b>COURSES</b></h5>
+									</div>
+									<div class="col-md-3 col-xs-2">
+										<h5><b>SELECT YEAR</b></h5>
+									</div>
+									<div class="col-md-2 col-xs-2">
+										<h5><b>OPENING</b></h5>
+									</div>
+									<div class="col-md-2 col-xs-3">
+										<h5><b>CLOSING</b></h5>
+									</div>
+									<div class="col-md-2 col-xs-3">
+										<h5><b>CATEGORY</b></h5>
+									</div>
+								</div>
+								<ul>
+									<li ng-repeat="cutoff in cutoffs">
+										<div class="row" style="padding:5px;" ng-style="{ 'background-color':'{{ cutoff.color }}' }">
+											<div class="col-md-6 col-xs-5 admission_list_text">
+												<h6> {{ cutoff.name }} </h6>
+											</div>
+											<div class="col-md-2 col-xs-2 admission_list_text">
+												<h6>{{ cutoff.opening }}</h6>
+											</div>
+											<div class="col-md-2 col-xs-2 admission_list_text">
+												<h6> {{ cutoff.closing }}</h6>
+											</div>
+											<div class="col-md-2 col-xs-3 admission_list_text">
+												<h6> {{ cutoff.category }}</h6>
+											</div>
+										</div>	
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+				
+			<div class="row" id="fee" ng-controller="feeController">
+				<div class="col-md-12">
+					<h3 class="row fee_header">
+						Fee Structure
+					</h3>
+					
+					<div class="row fee_content main_content">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 fee_total_cost">
+							<h6>TOTAL COST</h6>
+							<h3>{{ totalCost | currency:"₹ ":0 }} LPA</h3>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 fee_total_cost">
+							<h6>SCHOLARSHIP AVALIABILITY</h6>
+							<h3>{{ scholarship }} </h3>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 fee_download">	 
+							<p class="fee_downloadbutton text-center">
+								DOWNLOAD BROCHURE
+							</p>
+						</div>
+					</div>	
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="row" id="ranking" ng-controller="rankingController">
+				<div class="col-md-12">
+					<h3 class="row ranking_header">
+						Ranking
+					</h3>
+				</div>
+			
+				<div class="row main_content">
+					<div class="col-md-12">
+						<div class="tabbable" id="tabs-993252">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#panel-472792" data-toggle="tab">INTERNATIONAL</a>
+								</li>
+								<li>
+									<a href="#panel-338808" data-toggle="tab">NATIONAL</a>
+								</li>
+							</ul>
+							<div class="ranking_tab_container">
+								<div class="tab-content">		
+									<div class="tab-pane active ranking_content" id="panel-472792">
+										<div class="row" style="padding:5px 0px;">
+											<div class="col-md-6 col-xs-8">
+												<h5><b>AFFILIATIONS</b></h5>
+											</div>
+											<div class="col-md-6 col-xs-4">
+												<h5><b>RANK</b></h5>
+											</div>
+										</div>
+										<ul>
+											<li ng-repeat="affiliation in affiliations">
+												<div class="row ranking_table_content"  ng-style="{ 'background-color':'{{ affiliation.color }}' }">
+													<div class="col-md-6 col-xs-8 affiliation_text">
+														<h6>{{ affiliation.name + "6"}}</h6>
+													</div>
+													<div class="col-md-6 col-xs-4 affiliation_text">
+														<h6>{{ affiliation.rank }}</h6>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-pane ranking_content" id="panel-338808">
+										<div class="row" style="padding:5px 0px;">
+											<div class="col-md-6 col-xs-8">
+												<h5><b>AFFILIATIONS</b></h5>
+											</div>
+											<div class="col-md-6 col-xs-4">
+												<h5><b>RANK</b></h5>
+											</div>
+										</div>
+										<ul>
+											<li ng-repeat="affiliation in affiliations">
+												<div class="row ranking_table_content" ng-style="{ 'background-color':'{{ affiliation.color }}' }">
+													<div class="col-md-6 col-xs-8 affiliation_text">
+														<h6>{{ affiliation.name + "7" }}</h6>
+													</div>
+													<div class="col-md-6 col-xs-4 affiliation_text">
+														<h6>{{ affiliation.rank + 50}}</h6>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<br >
+									<div class="row ranking_lower_content main_content">
+										<div class="col-md-4 col-xs-6 ranking_content">
+											<h5><b>AWARDS</b></h5>
+											<h3>{{ award }}</h3>
+										</div>
+										<div class="col-md-4 col-xs-6 ranking_content">
+											<h5><b>RATING</b></h5>
+											<fieldset class="rating">
+												   	<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+													<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+												<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+												<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Good - 3.5 stars"></label>
+												<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+												<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+												<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+												<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+												<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+												<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+											</fieldset>
+										</div>
+										<div class="text-center col-md-4 col-xs-12 ranking_button_container">
+						 					RATE COLLEGE
+										</div>
+									</div>
+									<br>
+								</div>	
+							</div>
+						</div>	
+					</div>
+				</div>	
+			</div>
+
+			<br><br>
+
+			<div class="row" id="faculty_diversity">
+				<div class="col-md-12">
+					<div class="row ">
+						<div class="col-md-5" ng-controller="facultyController">
+							<h3 class="row">
+								Faculty
+							</h3>
+							<div class="row main_content facdiv_container faculty_content">
+								<div class="col-md-6 col-xs-6">
+									<h6>NUMBER</h6>
+									<h3>{{ no }}</h3>
+								</div>
+								<div class="col-md-6 col-xs-6">
+									<h6>FACULTY:STUDENT</h6>
+									<h3>{{ ratio }}</h3>
+								</div>
+							
+								<div class="col-md-6 col-xs-6" style="margin-top:17px;">
+									<h6>MALE:FEMALE</h6>
+									<h3>{{ sexRatio }}</h3>
+								</div>
+								<div class="col-md-6 col-xs-6" style="margin-top:17px;">
+									<h6>STAFF QUATERS</h6>
+									<h3>{{ quaters }}</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-7 " ng-controller="diversityController">
+							<h3 class="row faculty_header">
+								Diversity
+							</h3>
+							<div class="row main_content facdiv_container faculty_content">
+								<div class="col-md-4 col-xs-6">
+									<h6>RESERVATION</h6>
+									<h3>{{ reservation }}</h3>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h6>DISCIPLINE</h6>
+									<h3>{{ discipline }}</h3>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<h6>MALE:FEMALE</h6>
+									<h3>{{ sexRatio }}</h3>
+								</div>
+								<div class="col-md-4 col-xs-6" style="margin-top:17px;">
+									<h6>AVERAE AGE</h6>
+									<h3>{{ age }}</h3>
+								</div>
+								<div class="col-md-8 col-xs-6" style="margin-top:17px;">
+									<h6>FOREIGN NATIONALS</h6>
+									<h3>{{ foreignnational }}</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="row" id="placements" ng-controller="placementController">
+				<div class="col-md-12">
+					<h3 class="row fee_header">
+							Placement
+					</h3>
+					<div class="row main_content fee_content">
+						<div class="col-md-4 col-xs-6">
+							<h6>Highest Package</h6>
+							<h3>{{ highest  | currency:"₹ ":0 }} LPA</h3>	
+						</div>
+						<div class="col-md-4 col-xs-6">
+							<h6>Average Package</h6>
+							<h3>{{ lowest   | currency:"₹ ":0 }} LPA</h3>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<h6>Percentage Placed</h6>
+							<h3>{{ no }}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="row" id="recruiters" ng-controller="recruitersController">
+				<div class="col-md-12 recruiter_content">
+					<h3 class="row fee_header">
+							Recruiters
+					</h3>
+					<br>
+					<div class="row main_content recruiters_content">
+						<div class="col-md-3 col-xs-4 recruiters" ng-repeat="recruiter in recruiters">
+							<img alt="Recruiter Image" ng-src="{{ recruiter.path }}" class="recruiter_img" style="width:70%;height:70%;">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="row"  id="alumni" ng-controller="alumniController">
+				<div class="col-md-12">
+					<h3 class="row">
+						Top Alumni
+					</h3>
+					<br>
+					<div class="row text-center">
+						<div class="col-md-3 col-xs-6 alumni_content" ng-repeat="person in alumni">
+							<img width="80px" alt="Bootstrap Image Preview" ng-src="{{ person.imagePath }}" class="img-circle">
+							<h5><b>{{ person.name }}</b></h5>
+							<p style="font-size:12px;">{{ person.description }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+    
+	<!-- Modules -->
+    <script src="js/app.js"></script>
+	<!-- Controllers -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
